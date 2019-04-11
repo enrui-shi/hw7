@@ -10,12 +10,10 @@ var connection = mysql.createConnection({
   password : 'password',
   database : 'hw7'
 });
-connection.connect();
-if(connection.state === 'disconnected'){
-    console.log('error')
-  }else{
-      console.log('db connected')
-  }
+con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
 
 app.get('/hw7',function(req,res){
     club = req.query.club
