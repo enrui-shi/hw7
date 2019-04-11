@@ -25,15 +25,35 @@ app.get('/hw7',function(req,res){
                         if(err){
                             console.log(err)
                         }
+                        var max=-1
+                        var gs=-1
+                        var player
+                        var total=0
+                        var count=0
                         for (i in result){
-                            console.log(result[i].player);
+                            count= count+1
+                            total = result[i].a+total
+                            if(result[i].a>max){
+                                max = result[i].a
+                                gs = result[i].gs
+                                player = result[i].player
+                            }else if(result[i].a=max){
+                                if(result[i].gs>gs){
+                                    max = result[i].a
+                                    gs = result[i].gs
+                                    player = result[i].player
+                                }
+                            }
                         }
+                        res.json({
+                            'club':club,
+                            'pos':pos,
+                            'max_assists': max, 
+                            'player':player, 
+                            'avg_assists': total/count
+                        })
                     });
-    res.json({
-        'club':club,
-        'pos':pos,
-
-    })
+    
 })
 app.listen(port,'0.0.0.0', () => {
     return console.log(`App listening on port ${port}!`);
