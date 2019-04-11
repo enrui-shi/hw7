@@ -26,8 +26,7 @@ app.get('/hw7',function(req,res){
                             console.log(err)
                         }
                         for (i in result){
-                            console.log(i.a);
-                            console.log(i.player);
+                            console.log(i);
                         }
                     });
     res.json({
