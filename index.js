@@ -33,16 +33,10 @@ app.get('/hw7',function(req,res){
                         for (i in result){
                             count= count+1
                             total = result[i].a+total
-                            if(result[i].a>max){
+                            if(result[i].a>max||(result[i].a=max&&result[i].gs>gs)){
                                 max = result[i].a
                                 gs = result[i].gs
                                 player = result[i].player
-                            }else if(result[i].a=max){
-                                if(result[i].gs>gs){
-                                    max = result[i].a
-                                    gs = result[i].gs
-                                    player = result[i].player
-                                }
                             }
                         }
                         res.json({
