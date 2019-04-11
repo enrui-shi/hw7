@@ -20,8 +20,12 @@ app.get('/hw7',function(req,res){
     pos = req.query.pos
     query = 'SELECT player a gs From assists WHERE club='+club+' pos='+pos
     connection.query(query, 
-                    function(err, result) {
+                    function(err, result, fields) {
+                        if(err){
+                            console.log(err)
+                        }
                         console.log(result);
+                        console.log(fields)
                     });
     res.json({
         'club':club,
