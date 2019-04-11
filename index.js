@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
   password : 'password',
   database : 'hw7'
 });
-con.connect(function(err) {
+connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
   });
