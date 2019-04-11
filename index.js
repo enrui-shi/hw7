@@ -25,8 +25,10 @@ app.get('/hw7',function(req,res){
                         if(err){
                             console.log(err)
                         }
-                        console.log(result);
-                        console.log(fields)
+                        for (i in result){
+                            console.log(i.a);
+                            console.log(i.player);
+                        }
                     });
     res.json({
         'club':club,
